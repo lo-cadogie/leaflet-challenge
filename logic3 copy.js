@@ -58,16 +58,17 @@ d3.json(url).then(function(data) {
 // REMEMBER TO ADD A LEGEND FOR THE DEPTH COLORS
 
 let legend = L.control({position: 'bottomright'});
-legend.onAdd = function (myMap) {
+legend.onAdd = function () {
 let div = L.DomUtil.create('div', 'info legend'),
 depth = [10,30,50,70,90];
 labels = ['#fef0d9', '#fdd49e', '#fdbb84', '#e34a33', '#b30000']
 
 for (var i = 0; i < depth.length; i++) {
-  div.innerHTML += depth[i] + (" <img src="+ labels[i] +" height='50' width='50'>") +'<br>';
+  div.innerHTML += '<i style="background:' + labels[i] + '"></i> ' +
+  depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
 }
 
 return div;
 };
 
-legend.addTo(map);
+legend.addTo(myMap);
