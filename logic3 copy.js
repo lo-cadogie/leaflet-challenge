@@ -60,7 +60,7 @@ d3.json(url).then(function(data) {
 let legend = L.control({position: 'bottomright'});
 legend.onAdd = function () {
 let div = L.DomUtil.create('div', 'info legend'),
-depth = [10,30,50,70,90];
+depth = [0, 10,30,50,70];
 labels = ['#fef0d9', '#fdd49e', '#fdbb84', '#e34a33', '#b30000']
 
 for (var i = 0; i < depth.length; i++) {
